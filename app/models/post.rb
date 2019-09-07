@@ -14,6 +14,8 @@ class Post < ActiveRecord::Base
   
   def clickbait_validation
     if CLICKBAIT_TERMS.none? { |term| title.match(term) }
-      
+      errors.add(:title, "must be clickbaity")
+    end
   end
+  
 end
